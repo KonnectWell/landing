@@ -3,7 +3,7 @@ import { toSentenceCase } from '@/helpers';
 import { cn } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { LuDownloadCloud, LuMenu, LuX } from 'react-icons/lu';
 
 import logoDark from '@/assets/images/logo-dark.png';
@@ -22,6 +22,19 @@ const TopNavBar = ({
   const navbarRef = useRef<HTMLDivElement>(null);
   const hash = window.location.hash;
   
+  const activeSection = useCallback(() => {
+    const scrollY = window.scrollY;
+
+    for (let i = menuItems.length - 1; i >= 0; i--) {
+      const section = menuItems[i];
+      const el: HTMLElement | null = document.getElementById(section)
+      if (el && el.offsetTop <= scrollY + 100) {
+        setActivation(section);
+        return;
+      }
+    }
+  }, [menuItems]);
+
   useEffect(() => {
     document.addEventListener('scroll', (e) => {
       e.preventDefault();
@@ -43,22 +56,9 @@ const TopNavBar = ({
       clearTimeout(timeout);
       window.removeEventListener('scroll', activeSection);
     };
-  }, []);
+  }, [activeSection, hash]);
 
   const [activation, setActivation] = useState<string>(menuItems[0]);
-
-  const activeSection = () => {
-    const scrollY = window.scrollY;
-
-    for (let i = menuItems.length - 1; i >= 0; i--) {
-      const section = menuItems[i];
-      const el: HTMLElement | null = document.getElementById(section)
-      if (el && el.offsetTop <= scrollY + 100) {
-        setActivation(section);
-        return;
-      }
-    }
-  };
 
   return (
     <>

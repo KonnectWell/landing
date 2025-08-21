@@ -18,7 +18,7 @@ const Feature3 = () => {
               Ongoing Support and Relationship Management
             </h2>
             <p className="mt-5 text-base">
-              Our relationship doesn't end with the initial match. We provide ongoing support to ensure your partnership with your financial advisor continues to meet your evolving needs. From regular check-ins to relationship optimization, we're here every step of the way.
+              Our relationship doesn&apos;t end with the initial match. We provide ongoing support to ensure your partnership with your financial advisor continues to meet your evolving needs. From regular check-ins to relationship optimization, we&apos;re here every step of the way.
             </p>
             <div className="group mt-5">
               <Link

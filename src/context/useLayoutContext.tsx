@@ -6,6 +6,7 @@ import {
   useState,
   useMemo,
   useEffect,
+  useCallback,
 } from 'react'
 import type { LayoutState, LayoutTheme, LayoutType } from './layout'
 
@@ -29,9 +30,9 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
   const themeMode = settings.theme
 
   // update settings
-  const updateSettings = (_newSettings: Partial<LayoutState>) => {
+  const updateSettings = useCallback((_newSettings: Partial<LayoutState>) => {
     setSettings({ ...settings, ..._newSettings })
-  }
+  }, [settings])
 
   useEffect(() => {
     const html = document.getElementsByTagName('html')[0]
@@ -39,13 +40,13 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
     else html.classList.remove('dark')
   }, [themeMode])
 
-  const updateTheme = (newTheme: LayoutTheme) => {
+  const updateTheme = useCallback((newTheme: LayoutTheme) => {
     updateSettings({ ...settings, theme: newTheme })
-  }
+  }, [updateSettings, settings])
 
-  const resetSettings = () => {
+  const resetSettings = useCallback(() => {
     setSettings(INIT_STATE)
-  }
+  }, [INIT_STATE])
 
   return (
     <LayoutContext.Provider
@@ -56,7 +57,7 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
           updateTheme,
           resetSettings,
         }),
-        [settings, themeMode]
+        [settings, themeMode, updateTheme, resetSettings]
       )}
     >
       {children}
