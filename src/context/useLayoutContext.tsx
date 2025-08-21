@@ -21,9 +21,9 @@ function useLayoutContext() {
 }
 
 function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
-  const INIT_STATE: LayoutState = {
+  const INIT_STATE: LayoutState = useMemo(() => ({
     theme: 'light',
-  }
+  }), [])
 
   const [settings, setSettings] = useState<LayoutState>(INIT_STATE)
 
