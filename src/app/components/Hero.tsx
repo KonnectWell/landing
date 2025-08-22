@@ -19,11 +19,11 @@ const Hero = () => {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 2xl:gap-20">
             <div className="pb-20 pt-[132px]">
-              <h2 className="text-3xl font-medium text-default-950 xl:text-5xl/tight">
+              <h1 className="text-3xl font-medium text-default-950 xl:text-5xl/tight">
                 Find Your Perfect Financial Advisor Match
-              </h2>
+              </h1>
               <p className="mt-6 sm:text-lg">
-                KonnectWell uses advanced algorithms and comprehensive data analysis to connect you with financial advisors who perfectly match your goals, risk tolerance, and financial situation. Trusted connections. Data-driven fit.
+                KonnectWell uses advanced AI algorithms and comprehensive data analysis to connect you with certified financial advisors who perfectly match your investment goals, risk tolerance, and financial planning needs. Trusted connections. Data-driven fit.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-6">
                 <Link

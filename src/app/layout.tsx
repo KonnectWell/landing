@@ -144,7 +144,7 @@ export default function RootLayout({
       </head>
 
       <body className={rem.className}>
-        <div id="splash-screen">
+        {/* <div id="splash-screen">
           <Image
             alt="Logo"
             width={355}
@@ -152,7 +152,7 @@ export default function RootLayout({
             src={'/logo-dark.png'}
             style={{ height: '10%', width: 'auto' }}
           />
-        </div>
+        </div> */}
         <NextTopLoader color="#2563eb" showSpinner={false} />
         <div id="__next_splash">
           {children}

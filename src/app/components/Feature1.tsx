@@ -14,10 +14,10 @@ const Feature1 = () => {
               Smart Matching
             </span>
             <h2 className="mt-4 text-4xl/tight font-medium text-default-950">
-              AI-Powered Advisor Matching: Find Your Perfect Financial Fit
+              AI-Powered Financial Advisor Matching: Find Your Perfect Investment Planning Fit
             </h2>
             <p className="mt-5 text-base text-default-900">
-              Our proprietary algorithm analyzes your financial goals, risk tolerance, investment preferences, and life circumstances to connect you with advisors who specialize in your specific needs. No more guesswork - just data-driven matches that lead to lasting financial relationships.
+              Our proprietary AI algorithm analyzes your retirement planning goals, investment risk tolerance, wealth management preferences, and life circumstances to connect you with certified financial planners who specialize in your specific financial needs. No more guesswork - just data-driven matches that lead to lasting financial planning relationships and portfolio optimization.
             </p>
             <div className="group mt-5">
               <Link

@@ -38,10 +38,10 @@ const OnBoarding = () => {
                 Simple Matching Process
               </span>
               <h2 className="mt-4 text-4xl font-medium text-default-950">
-                Three Easy Steps to Your Perfect Financial Advisor
+                Three Easy Steps to Your Perfect Financial Planning Partner
               </h2>
               <p className="mt-5 text-base">
-                Our streamlined process makes finding your ideal financial advisor simple and efficient. Answer a few questions, review your matches, and start building your financial future with confidence.
+                Our streamlined financial advisor matching process makes finding your ideal certified financial planner simple and efficient. Answer a few questions about your investment goals and retirement planning needs, review your personalized advisor matches, and start building your financial future with confidence through expert wealth management guidance.
               </p>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">

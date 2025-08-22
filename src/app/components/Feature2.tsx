@@ -20,7 +20,7 @@ const Feature2 = () => {
               Verified Advisors
             </span>
             <h2 className="mt-4 text-4xl/tight font-medium text-default-950">
-              Rigorous Verification: Every Advisor is Thoroughly Vetted
+              Rigorous Financial Advisor Verification: Every CFP® and CFA is Thoroughly Vetted
             </h2>
             <ul
               role="list"
@@ -29,19 +29,19 @@ const Feature2 = () => {
               <li className="flex items-center gap-3">
                 <LuCircle className="inline-block h-2 w-2 shrink fill-primary text-primary" />
                 <span className="grow text-base font-medium">
-                  Comprehensive background checks including credentials, certifications, and regulatory compliance verification.
+                  Comprehensive background checks including CFP® certification, CFA credentials, and regulatory compliance verification with FINRA and SEC.
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <LuCircle className="inline-block h-2 w-2 shrink fill-primary text-primary" />
                 <span className="grow text-base font-medium">
-                  Performance analysis and client satisfaction reviews to ensure quality service delivery.
+                  Investment performance analysis and client satisfaction reviews to ensure quality wealth management service delivery.
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <LuCircle className="inline-block h-2 w-2 shrink fill-primary text-primary" />
                 <span className="grow text-base font-medium">
-                  Ongoing monitoring and regular re-evaluation to maintain our high standards of excellence.
+                  Ongoing monitoring and regular re-evaluation to maintain our high standards of financial planning excellence.
                 </span>
               </li>
             </ul>

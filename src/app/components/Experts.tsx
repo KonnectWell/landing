@@ -11,10 +11,10 @@ const Experts = () => {
               Our Network
             </span>
             <h2 className="mt-4 text-4xl font-medium text-default-950">
-              Trusted Financial Advisors Ready to Serve You
+              Certified Financial Planners and Investment Advisors Ready to Serve You
             </h2>
             <p className="mt-4 text-base text-default-700">
-              Our carefully curated network of certified financial advisors brings diverse expertise across retirement planning, investment management, tax strategies, and more.
+              Our carefully curated network of CFP® certified financial planners and CFA chartered financial analysts brings diverse expertise across retirement planning, investment portfolio management, tax-efficient wealth building strategies, estate planning, and comprehensive financial planning services.
             </p>
           </div>
         </div>

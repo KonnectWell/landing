@@ -13,10 +13,10 @@ const SearchPlan = () => {
           >
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="mt-5 text-3xl font-medium text-default-950 md:text-4xl">
-                Ready to Find Your Perfect Financial Advisor Match?
+                Ready to Find Your Perfect Financial Planning and Investment Advisor Match?
               </h2>
               <p className="mt-6  text-base text-default-950">
-                Start your journey to financial success today. Our free consultation will help us understand your needs and connect you with the right advisor from our trusted network.
+                Start your journey to financial success and wealth building today. Our free financial planning consultation will help us understand your investment goals, retirement planning needs, and risk tolerance to connect you with the right certified financial planner from our trusted network of CFP® and CFA professionals.
               </p>
               <form className="mx-auto mt-6 max-w-2xl space-y-2">
                 <div className="relative">

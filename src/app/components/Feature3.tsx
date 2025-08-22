@@ -14,11 +14,10 @@ const Feature3 = () => {
               Personalized Support
             </span>
             <h2 className="mt-4 text-4xl/tight font-medium text-default-950">
-              {' '}
-              Ongoing Support and Relationship Management
+              Ongoing Financial Planning Support and Wealth Management Relationship
             </h2>
             <p className="mt-5 text-base">
-              Our relationship doesn&apos;t end with the initial match. We provide ongoing support to ensure your partnership with your financial advisor continues to meet your evolving needs. From regular check-ins to relationship optimization, we&apos;re here every step of the way.
+              Our financial planning relationship doesn&apos;t end with the initial advisor match. We provide ongoing support to ensure your partnership with your certified financial planner continues to meet your evolving investment goals and retirement planning needs. From regular portfolio reviews to relationship optimization and tax strategy updates, we&apos;re here every step of your wealth building journey.
             </p>
             <div className="group mt-5">
               <Link
