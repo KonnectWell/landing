@@ -1,10 +1,7 @@
 'use client'
 import { footerLinks } from '@/assets/data'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { Fragment, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { LuMoveRight } from 'react-icons/lu'
-import * as yup from 'yup'
+import { LuMoveRight, LuCheck, LuX } from 'react-icons/lu'
 
 import logo from '@/assets/images/konnect-well.png'
 import Link from 'next/link'
@@ -14,22 +11,53 @@ const logoSize = 90;
 
 const Footer = () => {
   const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
   
-  const subscribeFormSchema = yup.object({
-    email: yup
-      .string()
-      .email('Please enter a valid email')
-      .required('Please enter your email'),
-  })
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email) {
+      setStatus('error')
+      setMessage('Please enter your email address')
+      return
+    }
 
-  const { handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(subscribeFormSchema)
-  })
+    setIsSubmitting(true)
+    setStatus('idle')
+    
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
 
-  const onSubmit = (data: any) => {
-    console.log('Email submitted:', data.email)
-    // TODO: Implement email submission logic
-    setEmail('')
+      const data = await response.json()
+
+      if (response.ok) {
+        setStatus('success')
+        setMessage(data.message || 'Thank you for subscribing!')
+        setEmail('')
+      } else {
+        setStatus('error')
+        setMessage(data.error || 'Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      setStatus('error')
+      setMessage('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+      
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setStatus('idle')
+        setMessage('')
+      }, 5000)
+    }
   }
 
   return (
@@ -44,7 +72,7 @@ const Footer = () => {
                     src={logo}
                     height={logoSize}
                     width={logoSize}
-                    alt="logo"
+                    alt="KonnectWell Logo"
                     className="flex"
                   />
                 </Link>
@@ -52,7 +80,7 @@ const Footer = () => {
                   KonnectWell connects you with trusted financial advisors through our advanced matching algorithm. Trusted connections. Data-driven fit.
                 </p>
                 <form
-                  onSubmit={handleSubmit(onSubmit)}
+                  onSubmit={onSubmit}
                   className="mt-6 space-y-2"
                 >
                   <div className="relative">
@@ -60,18 +88,34 @@ const Footer = () => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 w-full rounded-lg bg-default-100 py-4 pe-16 ps-4 text-default-950 placeholder:text-default-600"
-                      placeholder="Enter Your Email"
+                      disabled={isSubmitting}
+                      className="h-12 w-full rounded-lg bg-default-100 py-4 pe-16 ps-4 text-default-950 placeholder:text-default-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder="Enter your email for financial tips"
                     />
                     <button
                       type="submit"
-                      className="absolute end-[6px] top-[6px] inline-flex h-9 items-center justify-center gap-2 rounded-md bg-primary/20 px-6 text-primary transition-all duration-500 hover:bg-primary hover:text-white"
+                      disabled={isSubmitting}
+                      className="absolute end-[6px] top-[6px] inline-flex h-9 items-center justify-center gap-2 rounded-md bg-primary/20 px-6 text-primary transition-all duration-500 hover:bg-primary hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <LuMoveRight className="h-6 w-6" />
+                      {isSubmitting ? (
+                        <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
+                      ) : (
+                        <LuMoveRight className="h-6 w-6" />
+                      )}
                     </button>
                   </div>
-                  {errors.email && (
-                    <p className="text-sm text-red-500">{errors.email.message}</p>
+                  {/* Status Message */}
+                  {status !== 'idle' && (
+                    <div className={`flex items-center gap-2 text-sm ${
+                      status === 'success' ? 'text-green-600' : 'text-red-600'
+                    }`}>
+                      {status === 'success' ? (
+                        <LuCheck className="h-4 w-4" />
+                      ) : (
+                        <LuX className="h-4 w-4" />
+                      )}
+                      <span>{message}</span>
+                    </div>
                   )}
                 </form>
               </div>
