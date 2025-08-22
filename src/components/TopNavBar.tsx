@@ -29,7 +29,7 @@ const TopNavBar = ({
   }, []);
   
   const activeSection = useCallback(() => {
-    if (!isMounted) return;
+    if (!isMounted || typeof window === 'undefined') return;
     
     const scrollY = window.scrollY;
 
@@ -44,7 +44,7 @@ const TopNavBar = ({
   }, [menuItems, isMounted]);
 
   useEffect(() => {
-    if (!isMounted) return;
+    if (!isMounted || typeof window === 'undefined' || typeof document === 'undefined') return;
 
     const handleScroll = () => {
       activeSection();

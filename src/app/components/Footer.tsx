@@ -1,79 +1,131 @@
+'use client'
+import { footerLinks } from '@/assets/data'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Fragment, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { LuMoveRight } from 'react-icons/lu'
+import * as yup from 'yup'
+
+import logo from '@/assets/images/konnect-well.png'
 import Link from 'next/link'
+import Image from 'next/image'
+
+const logoSize = 90;
 
 const Footer = () => {
+  const [email, setEmail] = useState('')
+  
+  const subscribeFormSchema = yup.object({
+    email: yup
+      .string()
+      .email('Please enter a valid email')
+      .required('Please enter your email'),
+  })
+
+  const { handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(subscribeFormSchema)
+  })
+
+  const onSubmit = (data: any) => {
+    console.log('Email submitted:', data.email)
+    // TODO: Implement email submission logic
+    setEmail('')
+  }
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">KonnectWell</h3>
-            <p className="text-gray-300 mb-4">
-              Trusted connections. Data-driven fit. We connect you with the perfect financial advisor 
-              through our innovative matchmaking platform.
-            </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">Twitter</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">LinkedIn</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.852-3.047-1.853 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </Link>
+    <footer>
+      <div className="border-y border-default-200">
+        <div className="container py-20">
+          <div className="grid gap-10 md:grid-cols-3 lg:gap-16 xl:grid-cols-5">
+            <div className="md:col-span-3 xl:col-span-2">
+              <div>
+                <Link href="">
+                  <Image
+                    src={logo}
+                    height={logoSize}
+                    width={logoSize}
+                    alt="logo"
+                    className="flex"
+                  />
+                </Link>
+                <p className="mt-6  text-base">
+                  KonnectWell connects you with trusted financial advisors through our advanced matching algorithm. Trusted connections. Data-driven fit.
+                </p>
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="mt-6 space-y-2"
+                >
+                  <div className="relative">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="h-12 w-full rounded-lg bg-default-100 py-4 pe-16 ps-4 text-default-950 placeholder:text-default-600"
+                      placeholder="Enter Your Email"
+                    />
+                    <button
+                      type="submit"
+                      className="absolute end-[6px] top-[6px] inline-flex h-9 items-center justify-center gap-2 rounded-md bg-primary/20 px-6 text-primary transition-all duration-500 hover:bg-primary hover:text-white"
+                    >
+                      <LuMoveRight className="h-6 w-6" />
+                    </button>
+                  </div>
+                  {errors.email && (
+                    <p className="text-sm text-red-500">{errors.email.message}</p>
+                  )}
+                </form>
+              </div>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#home" className="text-gray-300 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#experts" className="text-gray-300 hover:text-white transition-colors">
-                  Our Experts
-                </Link>
-              </li>
-              <li>
-                <Link href="#features" className="text-gray-300 hover:text-white transition-colors">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="#onboarding" className="text-gray-300 hover:text-white transition-colors">
-                  Get Started
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2">
-              <li className="text-gray-300">
-                <span className="sr-only">Email</span>
-                info@konnectwell.com
-              </li>
-              <li className="text-gray-300">
-                <span className="sr-only">Phone</span>
-                +1 (555) 123-4567
-              </li>
-            </ul>
+            {footerLinks.map((item, idx) => {
+              return (
+                <div key={idx}>
+                  <ul className="flex flex-col gap-3">
+                    <h5 className="mb-2 font-medium text-default-800 lg:text-lg xl:text-xl">
+                      {item.title}
+                    </h5>
+                    {item.items.map((item, idx) => {
+                      const Icon = item.icon
+                      return (
+                        <Fragment key={idx}>
+                          {Icon ? (
+                            <li className="group flex items-center gap-5">
+                              <Link
+                                href={`${item.link ? item.link : ''}`}
+                                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-default-300 text-default-800 transition-all duration-700 group-hover:border-primary group-hover:bg-primary group-hover:text-white"
+                              >
+                                <Icon className="h-5 w-5" />
+                              </Link>
+                              <h5 className="text-base font-medium text-default-800">
+                                {item.name}
+                              </h5>
+                            </li>
+                          ) : (
+                            <li>
+                              <Link
+                                href={`${item.link ? item.link : ''}`}
+                                className="text-base text-default-700 transition-all hover:text-default-950"
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          )}
+                        </Fragment>
+                      )
+                    })}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
         </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 KonnectWell. All rights reserved.
+      </div>
+      <div className="py-4">
+        <div className="container flex h-full flex-wrap items-center justify-center text-center md:justify-between md:text-start">
+          <p className="text-base text-default-900">
+            {new Date().getFullYear()} © KonnectWell. All rights reserved.
+          </p>
+          <p className="text-base">
+            <Link href="">Terms Conditions &amp; Policy</Link>
           </p>
         </div>
       </div>

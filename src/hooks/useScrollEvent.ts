@@ -21,7 +21,7 @@ const useScrollEvent = () => {
   }, [])
 
   useEffect(() => {
-    if (!isMounted || typeof window === 'undefined') return
+    if (!isMounted || typeof window === 'undefined' || typeof document === 'undefined') return
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     setScrollY(window.scrollY)

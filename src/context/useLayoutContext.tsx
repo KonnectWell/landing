@@ -26,8 +26,14 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
   }), [])
 
   const [settings, setSettings] = useState<LayoutState>(INIT_STATE)
+  const [isMounted, setIsMounted] = useState(false)
 
   const themeMode = settings.theme
+
+  // Ensure component is mounted before accessing DOM
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   // update settings
   const updateSettings = useCallback((_newSettings: Partial<LayoutState>) => {
@@ -35,10 +41,12 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
   }, [settings])
 
   useEffect(() => {
+    if (!isMounted || typeof document === 'undefined') return
+    
     const html = document.getElementsByTagName('html')[0]
     if (themeMode === 'dark') html.classList.add('dark')
     else html.classList.remove('dark')
-  }, [themeMode])
+  }, [themeMode, isMounted])
 
   const updateTheme = useCallback((newTheme: LayoutTheme) => {
     updateSettings({ ...settings, theme: newTheme })

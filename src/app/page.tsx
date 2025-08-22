@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import Experts from './components/Experts'
-import Feature1 from './components/Feature1'
-import Feature2 from './components/Feature2'
-import Feature3 from './components/Feature3'
-import Hero from './components/Hero'
-import MarqueeGroup from './components/MarqueeGroup'
-import OnBoarding from './components/OnBoarding'
-import SearchPlan from './components/SearchPlan'
-import { TopNavBar, Footer } from '@/components'
+import TopNavBar from './components/TopNavBar'
+import Footer from './components/Footer'
+// import Experts from './components/Experts'
+// import Feature1 from './components/Feature1'
+// import Feature2 from './components/Feature2'
+// import Feature3 from './components/Feature3'
+// import Hero from './components/Hero'
+// import MarqueeGroup from './components/MarqueeGroup'
+// import OnBoarding from './components/OnBoarding'
+// import SearchPlan from './components/SearchPlan'
 // import ValuableAssets from './components/ValuableAssets'
 
 export const metadata: Metadata = {
@@ -69,7 +70,7 @@ const KonnectWell = () => {
         hasDownloadButton
       />
 
-      <Hero />
+      {/* <Hero />
 
       <MarqueeGroup />
 
@@ -81,11 +82,11 @@ const KonnectWell = () => {
 
       <Feature3 />
 
-      {/* <ValuableAssets /> */}
+      <ValuableAssets />
 
       <OnBoarding />
 
-      <SearchPlan />
+      <SearchPlan /> */}
 
       <Footer />
     </>
