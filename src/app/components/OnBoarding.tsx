@@ -14,6 +14,24 @@ const OnBoarding = () => {
     <section id="onboarding" className="py-10 lg:py-20">
       <div className="container">
         <div className="grid items-center gap-6 lg:grid-cols-2">
+
+          <div className="relative lg:mb-0">
+            <div className="relative h-full">
+              <Image
+                alt="KonnectWell matching process"
+                src={finance6}
+                className="mx-auto h-full rounded-xl"
+              />
+            </div>
+            <div className="absolute inset-x-0 -bottom-14 hidden sm:block">
+              <Image
+                alt="KonnectWell advisor profiles"
+                src={finance7}
+                className="h-full rounded-xl"
+              />
+            </div>
+          </div>
+
           <div>
             <div className="max-w-2xl">
               <span className="rounded-md border border-primary bg-primary/20 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
@@ -37,22 +55,6 @@ const OnBoarding = () => {
                   </div>
                 )
               })}
-            </div>
-          </div>
-          <div className="relative lg:mb-0">
-            <div className="relative h-full">
-              <Image
-                alt="KonnectWell matching process"
-                src={finance6}
-                className="mx-auto h-full rounded-xl"
-              />
-            </div>
-            <div className="absolute inset-x-0 -bottom-14 hidden sm:block">
-              <Image
-                alt="KonnectWell advisor profiles"
-                src={finance7}
-                className="h-full rounded-xl"
-              />
             </div>
           </div>
         </div>

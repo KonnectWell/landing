@@ -4,10 +4,10 @@ import { cn } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { LuDownloadCloud, LuMenu, LuX } from 'react-icons/lu';
+import { LuNewspaper, LuMenu, LuX } from 'react-icons/lu';
 
-import logoDark from '@/assets/images/logo-dark.png';
-import logoLight from '@/assets/images/logo-light.png';
+import logo from '@/assets/images/konnect-well.png';
+const logoSize = 50;
 
 const TopNavBar = ({
   menuItems,
@@ -76,25 +76,18 @@ const TopNavBar = ({
               <div className="flex w-full items-center justify-between lg:w-auto">
                 <Link href="/">
                   <Image
-                    src={logoDark}
+                    src={logo}
                     alt="logo"
-                    height={40}
-                    width={147}
-                    className="flex h-10 dark:hidden"
-                  />
-                  <Image
-                    src={logoLight}
-                    alt="logo"
-                    height={40}
-                    width={147}
-                    className="hidden h-10 dark:flex"
+                    height={logoSize}
+                    width={logoSize}
+                    className="flex"
                   />
                 </Link>
                 <div className="flex items-center gap-2">
                   {hasDownloadButton && (
                     <div className="inline-flex shrink gap-2 lg:hidden">
                       <Link href="#onboarding" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-1.5 text-base text-white transition-all hover:bg-primary-700">
-                        <LuDownloadCloud className="h-4 w-4 fill-white/40" />
+                        <LuNewspaper className="h-4 w-4 fill-white/40" />
                         <span className="hidden sm:block">Get Started</span>
                       </Link>
                     </div>
@@ -132,7 +125,7 @@ const TopNavBar = ({
                   href="#onboarding"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-1.5 text-base text-white transition-all hover:bg-primary-700"
                 >
-                  <LuDownloadCloud className="h-4 w-4 fill-white/40" />
+                  <LuNewspaper className="h-4 w-4 fill-white/40" />
                   <span className="hidden sm:block">Get Started</span>
                 </Link>
               </div>
@@ -150,18 +143,11 @@ const TopNavBar = ({
         <div className="flex h-[74px] items-center justify-between border-b border-dashed border-default-200 px-4 transition-all duration-300">
           <Link href="/">
             <Image
-              src={logoDark}
+              src={logo}
               alt="logo"
-              height={40}
-              width={147}
-              className="flex h-10 dark:hidden"
-            />
-            <Image
-              src={logoLight}
-              alt="logo"
-              height={40}
-              width={147}
-              className="hidden h-10 dark:flex"
+              height={logoSize}
+              width={logoSize}
+              className="flex h-10"
             />
           </Link>
           <div data-hs-overlay="#mobile-menu" className="hs-collapse-toggle">

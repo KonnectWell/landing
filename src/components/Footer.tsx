@@ -6,11 +6,12 @@ import { useForm } from 'react-hook-form'
 import { LuMoveRight } from 'react-icons/lu'
 import * as yup from 'yup'
 
-import logoDark from '@/assets/images/logo-dark.png'
-import logoLight from '@/assets/images/logo-light.png'
+import logo from '@/assets/images/konnect-well.png'
 import { TextFormInput } from '@/components'
 import Link from 'next/link'
 import Image from 'next/image'
+
+const logoSize = 90;
 
 const Footer = () => {
   const subscribeFormSchema = yup.object({
@@ -32,18 +33,11 @@ const Footer = () => {
               <div>
                 <Link href="">
                   <Image
-                    src={logoDark}
-                    height={40}
-                    width={147}
+                    src={logo}
+                    height={logoSize}
+                    width={logoSize}
                     alt="logo"
-                    className="flex h-10 dark:hidden"
-                  />
-                  <Image
-                    src={logoLight}
-                    height={40}
-                    width={147}
-                    alt="logo"
-                    className="hidden h-10 dark:flex"
+                    className="flex"
                   />
                 </Link>
                 <p className="mt-6  text-base">

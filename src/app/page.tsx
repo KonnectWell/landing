@@ -20,7 +20,7 @@ const KonnectWell = () => {
   return (
     <>
       <TopNavBar
-        menuItems={['home', 'experts', 'features', 'assets', 'onboarding']}
+        menuItems={['home', 'experts', 'features', 'onboarding']}
         position="fixed"
         hasDownloadButton
       />
@@ -37,7 +37,7 @@ const KonnectWell = () => {
 
       <Feature3 />
 
-      <ValuableAssets />
+      {/* <ValuableAssets /> */}
 
       <OnBoarding />
 
