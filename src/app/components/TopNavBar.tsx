@@ -19,10 +19,17 @@ const TopNavBar = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
-  const [hash, setHash] = useState('')
+  const [isMounted, setIsMounted] = useState(false)
   const navRef = useRef<HTMLElement>(null)
 
+  // Ensure component is mounted before accessing DOM
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   const activeSectionCallback = useCallback(() => {
+    if (!isMounted) return
+    
     const sections = menuItems.map((item) => document.getElementById(item))
     const scrollPosition = window.scrollY + 100
 
@@ -36,35 +43,53 @@ const TopNavBar = ({
         }
       }
     })
-  }, [menuItems])
+  }, [menuItems, isMounted])
 
   useEffect(() => {
+    if (!isMounted) return
+
     const handleScroll = () => {
       activeSectionCallback()
     }
 
-    const handleHashChange = () => {
-      setHash(window.location.hash)
-    }
-
     window.addEventListener('scroll', handleScroll)
-    window.addEventListener('hashchange', handleHashChange)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('hashchange', handleHashChange)
     }
-  }, [activeSectionCallback, hash])
+  }, [activeSectionCallback, isMounted])
 
   const scrollToSection = (sectionId: string) => {
+    if (!isMounted) return
+    
     const element = document.getElementById(sectionId)
-    if (element) {
-      const offsetTop = element.offsetTop - (navRef.current?.offsetHeight || 0)
+    if (element && navRef.current) {
+      const offsetTop = element.offsetTop - navRef.current.offsetHeight
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth',
       })
     }
+  }
+
+  // Don't render until mounted to prevent hydration issues
+  if (!isMounted) {
+    return (
+      <nav className={`${position === 'fixed' ? 'fixed' : 'static'} top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-200/50`}>
+        <div className="container mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center">
+              <div className="h-10 w-10 bg-gray-200 rounded animate-pulse"></div>
+            </div>
+            <div className="hidden lg:flex lg:items-center lg:space-x-8">
+              {menuItems.map((item) => (
+                <div key={item} className="h-4 w-16 bg-gray-200 rounded animate-pulse"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
+    )
   }
 
   return (
@@ -79,7 +104,7 @@ const TopNavBar = ({
             <Link href="/">
               <Image
                 src={logo}
-                alt="logo"
+                alt="KonnectWell Logo"
                 height={logoSize}
                 width={logoSize}
                 className="flex h-10"

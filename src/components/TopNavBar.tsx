@@ -20,9 +20,17 @@ const TopNavBar = ({
 }) => {
 
   const navbarRef = useRef<HTMLDivElement>(null);
-  const hash = window.location.hash;
+  const [isMounted, setIsMounted] = useState(false);
+  const [activation, setActivation] = useState<string>(menuItems[0]);
+  
+  // Ensure component is mounted before accessing DOM
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   
   const activeSection = useCallback(() => {
+    if (!isMounted) return;
+    
     const scrollY = window.scrollY;
 
     for (let i = menuItems.length - 1; i >= 0; i--) {
@@ -33,32 +41,64 @@ const TopNavBar = ({
         return;
       }
     }
-  }, [menuItems]);
+  }, [menuItems, isMounted]);
 
   useEffect(() => {
-    document.addEventListener('scroll', (e) => {
-      e.preventDefault();
+    if (!isMounted) return;
+
+    const handleScroll = () => {
       activeSection();
       if (navbarRef.current) {
         if (window.scrollY >= 80) navbarRef.current.classList.add('nav-sticky');
         else navbarRef.current.classList.remove('nav-sticky');
       }
-    });
+    };
 
+    document.addEventListener('scroll', handleScroll);
+
+    // Handle initial hash navigation after mount
     const timeout = setTimeout(() => {
-      if (hash) {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const hash = window.location.hash;
         const element = document.querySelector(hash);
         if (element) element.scrollIntoView({ behavior: 'instant' });
       }
-    }, 0);
+    }, 100);
 
     return () => {
       clearTimeout(timeout);
-      window.removeEventListener('scroll', activeSection);
+      document.removeEventListener('scroll', handleScroll);
     };
-  }, [activeSection, hash]);
+  }, [activeSection, isMounted]);
 
-  const [activation, setActivation] = useState<string>(menuItems[0]);
+  // Don't render until mounted to prevent hydration issues
+  if (!isMounted) {
+    return (
+      <header className={cn(
+        position,
+        'inset-x-0 top-0 z-[60] w-full border-b border-transparent bg-white transition-all duration-300 dark:bg-default-50 lg:bg-transparent'
+      )}>
+        <div className="flex h-full items-center py-4">
+          <div className="container">
+            <nav className="flex flex-wrap items-center justify-between gap-4 lg:flex-nowrap">
+              <div className="flex w-full items-center justify-between lg:w-auto">
+                <div className="h-10 w-10 bg-gray-200 rounded animate-pulse"></div>
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-20 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-7 w-7 bg-gray-200 rounded"></div>
+                </div>
+              </div>
+              <div className="hidden lg:flex lg:items-center lg:space-x-8">
+                {menuItems.map((item, idx) => (
+                  <div key={idx} className="h-4 w-16 bg-gray-200 rounded animate-pulse"></div>
+                ))}
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <>
@@ -77,7 +117,7 @@ const TopNavBar = ({
                 <Link href="/">
                   <Image
                     src={logo}
-                    alt="logo"
+                    alt="KonnectWell Logo"
                     height={logoSize}
                     width={logoSize}
                     className="flex"
@@ -144,7 +184,7 @@ const TopNavBar = ({
           <Link href="/">
             <Image
               src={logo}
-              alt="logo"
+              alt="KonnectWell Logo"
               height={logoSize}
               width={logoSize}
               className="flex h-10"
