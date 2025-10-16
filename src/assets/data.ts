@@ -55,7 +55,7 @@ export const footerLinks: FooterLink[] = [
     ],
   },
   {
-    title: 'Legal & Press',
+    title: 'Legal',
     items: [
       {
         name: 'Privacy Policy',

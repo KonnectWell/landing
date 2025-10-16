@@ -1,11 +1,13 @@
+'use client'
 import Link from 'next/link'
 import { LuMoveRight, LuPlay } from 'react-icons/lu'
 import Image from 'next/image'
 import TestimonialSlider from './TestimonialSlider'
+import Lottie from 'lottie-react'
 
 import financeBackground from '@/assets/images/landing/finance/bg-1.png'
 import financeBackground2 from '@/assets/images/landing/finance/bg-2.png'
-import finance from '@/assets/images/landing/finance/img-1.png'
+import sitDownMeetAnimation from '@/../public/sit-down-meet.json'
 
 import 'swiper/css'
 
@@ -47,14 +49,15 @@ const Hero = () => {
             </div>
             <div>
               <div className="relative z-20 opacity-100">
-                <Image
-                  alt="KonnectWell financial advisor matchmaking"
-                  height={700}
-                  width={440}
-                  src={finance}
-                  className="mx-auto h-[700px] rounded-b-full"
-                />
-                <div className="absolute end-0 top-40 -z-10">
+                <div className="mx-auto h-[700px] w-full max-w-[600px]">
+                  <Lottie 
+                    animationData={sitDownMeetAnimation}
+                    loop={true}
+                    autoplay={true}
+                    className="h-full w-full"
+                  />
+                </div>
+                {/* <div className="absolute end-0 top-40 -z-10">
                   <Image
                     alt="finance-background"
                     src={financeBackground}
@@ -71,12 +74,12 @@ const Hero = () => {
                     src={financeBackground2}
                     className="mx-auto h-[450px]"
                   />
-                </div>
-                <div className="absolute bottom-0 end-0 z-20">
+                </div> */}
+                {/* <div className="absolute bottom-0 end-0 z-20">
                   <div className="max-w-xs overflow-hidden rounded-md shadow">
                     <TestimonialSlider />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

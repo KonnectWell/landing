@@ -80,8 +80,6 @@ const KonnectWell = () => {
 
       <Feature2 />
 
-      <Feature3 />
-
       {/* <ValuableAssets /> */}
 
       <OnBoarding />
