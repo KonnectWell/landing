@@ -63,7 +63,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="border-y border-default-200">
-        <div className="container py-20">
+        <div className="container py-20 pb-10">
           <div className="grid gap-10 md:grid-cols-3 lg:gap-16 xl:grid-cols-5">
             <div className="md:col-span-3 xl:col-span-2">
               <div>
@@ -162,6 +162,29 @@ const Footer = () => {
             })}
           </div>
         </div>
+
+        <div className="container mb-10">
+          <h5 className="mb-2 font-medium text-default-800 lg:text-lg xl:text-xl">
+            Disclaimers
+          </h5>
+          <div className="text-xs">
+            <ul className="list-disc list-inside">
+              <li>
+              KonnectWell is a technology platform that connects consumers with independent financial professionals. It is not a registered investment adviser and does not provide investment advice. Information provided is for informational purposes only.
+              </li>
+              <li>
+              Past performance does not guarantee future results.
+              </li>
+              <li>
+              Testimonials reflect individual experiences; compensation was not provided; results are not typical.
+              </li>
+              <li>
+              CFP® and CERTIFIED FINANCIAL PLANNER™ are certification marks owned by the Certified Financial Planner Board of Standards Inc.
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
       <div className="py-4">
         <div className="container flex h-full flex-wrap items-center justify-center text-center md:justify-between md:text-start">

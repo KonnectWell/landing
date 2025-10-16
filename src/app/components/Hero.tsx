@@ -20,10 +20,10 @@ const Hero = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 2xl:gap-20">
             <div className="pb-20 pt-[132px]">
               <h1 className="text-3xl font-medium text-default-950 xl:text-5xl/tight">
-                Find Your Perfect Financial Advisor Match
+                Find Your Tailored Financial Advisor Match
               </h1>
               <p className="mt-6 sm:text-lg">
-                KonnectWell uses advanced AI algorithms and comprehensive data analysis to connect you with certified financial advisors who perfectly match your investment goals, risk tolerance, and financial planning needs. Trusted connections. Data-driven fit.
+                KonnectWell uses tailored algorithms and comprehensive data analysis to connect you with certified financial advisors who perfectly match your investment goals, risk tolerance, and financial planning needs. Trusted connections. Data-driven fit.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-6">
                 <Link
@@ -32,7 +32,7 @@ const Hero = () => {
                 >
                   Find Your Match <LuMoveRight className="h-6 w-6" />
                 </Link>
-                <button
+                {/* <button
                   className="group relative flex items-center justify-center gap-4 text-base"
                   data-hs-overlay="#watchvideomodal"
                 >
@@ -42,7 +42,7 @@ const Hero = () => {
                   <span className="text-base font-medium">
                     See How It Works
                   </span>
-                </button>
+                </button> */}
               </div>
             </div>
             <div>

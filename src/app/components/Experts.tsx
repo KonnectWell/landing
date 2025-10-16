@@ -24,6 +24,9 @@ const Experts = () => {
           ))}
         </div>
       </div>
+      <div className="text-center flex items-center justify-center mt-4">
+        <span className="text-xs text-default-500">Testimonials reflect individual experiences; compensation was not provided; results are not typical.</span>
+      </div>
     </section>
   )
 }

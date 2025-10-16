@@ -16,7 +16,7 @@ const SearchPlan = () => {
                 Ready to Find Your Perfect Financial Planning and Investment Advisor Match?
               </h2>
               <p className="mt-6  text-base text-default-950">
-                Start your journey to financial success and wealth building today. Our free financial planning consultation will help us understand your investment goals, retirement planning needs, and risk tolerance to connect you with the right certified financial planner from our trusted network of CFP® and CFA professionals.
+                Start your journey toward your financial goals and wealth building today. Our free financial planning consultation will help us understand your investment goals, retirement planning needs, and risk tolerance to connect you with the right certified financial planner from our trusted network of CFP® and CFA professionals.
               </p>
               <form className="mx-auto mt-6 max-w-2xl space-y-2">
                 <div className="relative">

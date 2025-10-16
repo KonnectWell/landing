@@ -1,6 +1,6 @@
 # KonnectWell - Financial Advising Matchmaking Service
 
-KonnectWell is a financial advising matchmaking service that connects individuals with the perfect financial advisor. Our AI-powered algorithm ensures trusted connections and data-driven fit for your financial planning needs.
+KonnectWell is a financial advising matchmaking service that connects individuals with the perfect financial advisor. Our tailored algorithm ensures trusted connections and data-driven fit for your financial planning needs.
 
 **Slogan:** Trusted connections. Data-driven fit.
 
@@ -26,7 +26,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Features
 
-- **Smart Matching Algorithm**: AI-powered advisor matching based on your financial goals and preferences
+- **Smart Matching Algorithm**: Tailored advisor matching based on your financial goals and preferences
 - **Verified Advisors**: Rigorous verification process for all financial advisors in our network
 - **Personalized Support**: Ongoing relationship management and support throughout your journey
 - **Educational Resources**: Comprehensive financial planning guides and investment insights

@@ -29,7 +29,7 @@ const Feature2 = () => {
               <li className="flex items-center gap-3">
                 <LuCircle className="inline-block h-2 w-2 shrink fill-primary text-primary" />
                 <span className="grow text-base font-medium">
-                  Comprehensive background checks including CFP® certification, CFA credentials, and regulatory compliance verification with FINRA and SEC.
+                  Comprehensive background checks including CFP® certification, CFA credentials, and regulatory compliance verification using publicly available databases.
                 </span>
               </li>
               <li className="flex items-center gap-3">

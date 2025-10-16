@@ -44,7 +44,7 @@ const OnBoarding = () => {
                 Our streamlined financial advisor matching process makes finding your ideal certified financial planner simple and efficient. Answer a few questions about your investment goals and retirement planning needs, review your personalized advisor matches, and start building your financial future with confidence through expert wealth management guidance.
               </p>
             </div>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {/* <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {brands.map((image, idx) => {
                 return (
                   <div
@@ -55,7 +55,7 @@ const OnBoarding = () => {
                   </div>
                 )
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

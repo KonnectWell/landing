@@ -108,6 +108,9 @@ const Footer = () => {
             })}
           </div>
         </div>
+        <div>
+          Disclaimers
+        </div>
       </div>
       <div className="py-4">
         <div className="container flex h-full flex-wrap items-center justify-center text-center md:justify-between md:text-start">

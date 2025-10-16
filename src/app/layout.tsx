@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'KonnectWell - Financial Advising Matchmaking Service',
     template: '%s | KonnectWell - Financial Advising Matchmaking Service',
   },
-  description: 'KonnectWell is a financial advising matchmaking service that connects you with the perfect financial advisor. Our AI-powered algorithm ensures trusted connections and data-driven fit for your financial planning needs.',
+  description: 'KonnectWell is a financial advising matchmaking service that connects you with the perfect financial advisor. Our algorithm is designed to help facilitate trusted connections and data-driven matches for your financial planning needs.',
   keywords: [
     'financial advisor',
     'financial planning',

@@ -42,7 +42,7 @@ const Hero = () => {
                 <span className="text-primary">KonnectWell</span> - Financial Advising Matchmaking
               </h1>
               <p className="mx-auto max-w-3xl text-base text-default-700">
-                Trusted connections. Data-driven fit. Find your perfect financial advisor match through our AI-powered algorithm and comprehensive verification process.
+                Trusted connections. Data-driven fit. Find your tailored financial advisor match through our tailored algorithm and comprehensive verification process.
               </p>
             </div>
             <div className="my-16 text-center">

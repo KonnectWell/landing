@@ -21,36 +21,33 @@ export const footerLinks: FooterLink[] = [
     items: [
       {
         name: 'About',
+        link: '/',
       },
       {
         name: 'Services',
-      },
-      {
-        name: 'Portfolio',
-      },
-      {
-        name: 'Blog',
+        link: '#features',
       },
       {
         name: 'Contact',
+        link: 'mailto:konnectwell00@gmail.com',
       },
     ],
   },
   {
     title: 'Social Media',
     items: [
-      {
-        name: 'Facebook',
-        icon: LuFacebook,
-      },
-      {
-        name: 'Instagram',
-        icon: LuInstagram,
-      },
-      {
-        name: 'Twitter',
-        icon: LuTwitter,
-      },
+      // {
+      //   name: 'Facebook',
+      //   icon: LuFacebook,
+      // },
+      // {
+      //   name: 'Instagram',
+      //   icon: LuInstagram,
+      // },
+      // {
+      //   name: 'Twitter',
+      //   icon: LuTwitter,
+      // },
       {
         name: 'Linkedin',
         icon: LuLinkedin,
@@ -62,12 +59,11 @@ export const footerLinks: FooterLink[] = [
     items: [
       {
         name: 'Privacy Policy',
+        link: '/privacy-policy',
       },
       {
         name: 'Terms & Conditions',
-      },
-      {
-        name: 'Presskit',
+        link: '/terms-and-conditions',
       },
     ],
   },

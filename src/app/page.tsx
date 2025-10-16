@@ -36,7 +36,7 @@ const KonnectWell = () => {
           itemOffered: {
             '@type': 'Service',
             name: 'Financial Advisor Matching',
-            description: 'AI-powered algorithm to find your perfect financial advisor match'
+            description: 'Tailored algorithm to find your perfect financial advisor match'
           }
         },
         {
