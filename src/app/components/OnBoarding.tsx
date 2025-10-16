@@ -11,6 +11,10 @@ import Image from 'next/image'
 const brands = [brand1, brand2, brand3, brand4, brand5, brand6]
 const OnBoarding = () => {
   return (
+    <div className="flex flex-col items-center justify-center w-full">
+      <div className="w-full">
+      <div data-tf-live="01K7QHK5PWAT0D2F4KWKJQYQAD"></div><script src="//embed.typeform.com/next/embed.js"></script>
+      </div>
     <section id="onboarding" className="py-10 lg:py-20">
       <div className="container">
         <div className="grid items-center gap-6 lg:grid-cols-2">
@@ -60,6 +64,7 @@ const OnBoarding = () => {
         </div>
       </div>
     </section>
+    </div>
   )
 }
 
