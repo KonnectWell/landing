@@ -1,6 +1,6 @@
-import { Footer, TopNavBar } from '@/components'
 import type { Metadata } from 'next'
-import OnBoarding from '../components/OnBoarding'
+import Footer from '../components/Footer'
+import TopNavBar from '../components/TopNavBar'
 import SearchPlan from '../components/SearchPlan'
 
 export const metadata: Metadata = {
